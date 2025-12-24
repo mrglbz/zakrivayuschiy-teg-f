@@ -21,5 +21,9 @@
     1.4375rem
   );
 
+  --img-width: clamp(371px, 30.52vw + 256.6px, 696px);
+  --img-height: clamp(371px, 30.89vw + 255.1px, 700px);
+
   --label-stroke-color: #fff;
+  --border: 2px solid #000;
 }

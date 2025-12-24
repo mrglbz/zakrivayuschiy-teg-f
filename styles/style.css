@@ -38,7 +38,7 @@
   text-transform: uppercase;
   padding-inline: var(--padding-inline-header);
   padding-block: var(--padding-block-header);
-  border: 2px solid #000;
+  border: var(--border);
   display: grid;
   place-items: center;
   text-align: center;
@@ -57,12 +57,13 @@
 
 .main {
   display: flex;
+  flex-direction: column;
   gap: 50px;
 }
 
 .card {
   background-color: #fff;
-  border: 2px solid #000;
+  border: var(--border);
 }
 
 .card__title {
@@ -75,7 +76,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 25px 25px 25px;
+  padding: 25px 25px;
 }
 
 .card__text {
@@ -134,7 +135,7 @@
 }
 
 .card__like-button {
-  border: 2px solid #000;
+  border: var(--border);
   padding: 7.25px 35px;
   background: #fff;
   font-family: inherit;
@@ -148,12 +149,50 @@
   line-height: 90%;
 }
 
-/* .button-save svg {
-  width: 21px;
-  height: 21px;
+.button__save-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal svg {
+.button__save {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 18px;
+  border: var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+
+.button__save svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (width >= 1440px) {
+  .page {
+    padding-block: 98px;
+    gap: 96px;
+  }
+
+  .card__image {
+    height: var(--img-height);
+    width: var(--img-width);
+  }
+
+  .button__save {
+    flex-direction: row;
+  }
+
+  .button__save svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* .modal svg {
   width: 39px;
   height: 39px;
-} */
+}  */
