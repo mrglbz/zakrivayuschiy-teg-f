@@ -116,7 +116,44 @@
   block-size: auto;
 }
 
+/*ФИЛЬТРЫ*/
+
+.filter-soft {
+  filter: grayscale(30%) sepia(40%) brightness(95%);
+}
+
+.filter-neon {
+  filter: saturate(150%) contrast(120%);
+}
+
+.filter-pink {
+  filter: hue-rotate(20deg);
+}
+
+.filter-green {
+  filter: hue-rotate(354deg) invert(0.8);
+}
+
+.filter-sepia {
+  filter: sepia(90%);
+}
+
+.filter-blur {
+  filter: blur(0.5rem);
+}
+
+.filter-mood {
+  filter: hue-rotate(90deg) opacity(0.6) brightness(90%);
+}
+
 /* ВСЕ КНОПКИ */
+
+.button {
+  border: var(--border);
+  background: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
 
 .button-like__container {
   display: flex;
@@ -135,11 +172,7 @@
 }
 
 .card__like-button {
-  border: var(--border);
   padding: 7.25px 35px;
-  background: #fff;
-  font-family: inherit;
-  cursor: pointer;
 }
 
 .button__text {
@@ -161,9 +194,6 @@
   align-items: center;
   gap: 8px;
   padding: 16px 18px;
-  border: var(--border);
-  background: #fff;
-  cursor: pointer;
 }
 
 .button__save svg {
@@ -171,7 +201,62 @@
   height: 28px;
 }
 
-@media (width >= 1440px) {
+/*МОДАЛЬНОЕ ОКНО*/
+
+.modal {
+  display: none;
+  padding: 0;
+  /*
+    max-width требуется переопределить, чтобы перебить значение для
+    dialog:-internal-dialog-in-top-layer из user agent stylesheet,
+    поскольку оно делает диалог меньше, чем требуется по мокапу
+  */
+  max-width: clamp(341px, calc(100% - 2em - 4px), 353px);
+}
+
+.modal__content {
+  padding: 28px 38px;
+  background: #fff;
+  color: #000;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px 20px;
+  align-items: center;
+  font-size: 14px;
+  font-family: var(--font-accent);
+}
+
+.modal[open] {
+  display: grid;
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.75);
+}
+
+.modal__text {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.modal__actions {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+}
+
+.modal__button {
+  padding: 10.5px 114.5px;
+}
+
+.modal__icon {
+  width: 39px;
+  height: 39px;
+}
+
+@media (width > 375px) {
   .page {
     padding-block: 98px;
     gap: 96px;
@@ -190,9 +275,12 @@
     width: 21px;
     height: 21px;
   }
-}
 
-/* .modal svg {
-  width: 39px;
-  height: 39px;
-}  */
+  .modal__content {
+    padding: 28px;
+  }
+
+  .modal__button {
+    padding: 10.5px 130.5px;
+  }
+}

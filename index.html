@@ -76,7 +76,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-soft"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -127,7 +127,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-neon"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -176,7 +176,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-pink"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -227,7 +227,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-green"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -279,7 +279,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-sepia"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -328,7 +328,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-blur"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -379,7 +379,7 @@
         <div class="card__image-wrapper">
           <span class="card__label">&lt;/html&gt;</span>
           <img
-            class="card__image"
+            class="card__image filter-mood"
             src="./images/pixel-van.png"
             alt="Пиксельный фургон ночью"
             loading="lazy"
@@ -429,7 +429,10 @@
 
       <!-- КНОПКА SAVE -->
       <section class="button__save-wrapper">
-        <button class="button button__save">
+        <button
+          class="button button__save"
+          onclick="window['save-modal'].showModal()"
+        >
           <svg viewBox="0 0 39 39">
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
@@ -437,23 +440,26 @@
         </button>
       </section>
     </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО-->
+    <dialog class="modal" id="save-modal" aria-labelledby="save-modal-title">
+      <div class="modal__content">
+        <svg class="modal__icon" viewBox="0 0 39 39">
+          <use href="./svg/floppy.svg#floppy"></use>
+        </svg>
+
+        <p class="modal__text" id="save-modal-title">
+          ВСТАВЬТЕ ДИСКЕТУ, ЧТОБЫ ПРОДОЛЖИТЬ
+        </p>
+
+        <form class="modal__actions" method="dialog">
+          <button class="button modal__button" type="submit">
+            <span class="button__text">OK</span>
+          </button>
+        </form>
+      </div>
+    </dialog>
+
     <script src="./scripts/like.js"></script>
   </body>
 </html>
-
-<!-- <section>
-      <button class="button button-save">
-        <svg viewBox="0 0 39 39">
-          <use href="./svg/floppy.svg#floppy"></use>
-        </svg>
-        <span>Сохранить на память</span>
-      </button>
-    </section>
-
-    <section>
-      <div class="modal">
-        <svg viewBox="0 0 39 39">
-          <use href="./svg/floppy.svg#floppy"></use>
-        </svg>
-      </div>
-    </section> -->
