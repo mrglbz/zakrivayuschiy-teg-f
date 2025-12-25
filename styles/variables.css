@@ -26,4 +26,8 @@
 
   --label-stroke-color: #fff;
   --border: 2px solid #000;
+  --accent-focus-color: #000;
+  --button-text-color: #fff;
+  --button-bg-color: #fff;
+  --stroke-like-icon: #000;
 }

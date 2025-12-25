@@ -114,6 +114,8 @@
   display: block;
   inline-size: 100%;
   block-size: auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 /*ФИЛЬТРЫ*/
@@ -149,10 +151,14 @@
 /* ВСЕ КНОПКИ */
 
 .button {
+  position: relative;
   border: var(--border);
-  background: #fff;
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
   font-family: inherit;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .button-like__container {
@@ -169,6 +175,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding: 5px 3.5px;
 }
 
 .card__like-button {
@@ -199,6 +206,50 @@
 .button__save svg {
   width: 28px;
   height: 28px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-focus-color);
+}
+
+.button::before {
+  content: "";
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.button__save svg {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--stroke-like-icon);
 }
 
 /*МОДАЛЬНОЕ ОКНО*/
