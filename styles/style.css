@@ -252,6 +252,12 @@
   outline: 2px solid var(--stroke-like-icon);
 }
 
+/* АНИМАЦИЯ СЕРДЦА */
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
 /*МОДАЛЬНОЕ ОКНО*/
 
 .modal {

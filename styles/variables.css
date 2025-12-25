@@ -30,4 +30,9 @@
   --button-text-color: #fff;
   --button-bg-color: #fff;
   --stroke-like-icon: #000;
+
+  /* переменные для сердца */
+  --heart-color-contour: #000;
+  --animation-fill-color: #ff0000;
+  --sparks-color-contour: #ff0000;
 }
