@@ -13,9 +13,12 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-main), sans-serif;
-  font-variation-settings: "wght" var(--font-main-weight-text);
-  background-image: var(--bg-gradient);
+  font-family: var(--font-main, "Inter", sans-serif);
+  font-variation-settings: "wght" var(--font-main-weight-text, 410);
+  background-image: var(
+    --bg-gradient,
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px)
+  );
   background-size: cover;
   background-attachment: fixed;
   display: flex;
@@ -26,7 +29,7 @@
 }
 
 .layout__width {
-  width: var(--layout-width);
+  width: var(--layout-width, clamp(320px, 100%, 700px));
   margin-inline: auto;
 }
 
@@ -34,23 +37,54 @@
 
 .header {
   background-color: white;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent, "PressStart2P", fantasy);
   text-transform: uppercase;
-  padding-inline: var(--padding-inline-header);
-  padding-block: var(--padding-block-header);
-  border: var(--border);
+  padding-inline: var(
+    --padding-inline-header,
+    clamp(14px, -24.2px + 10.19vw, 122.5px)
+  );
+  padding-block: var(
+    --padding-block-header,
+    clamp(120px, 3.41vh + 97.26px, 130px)
+  );
+  border: var(--border, 2px solid #000);
   display: grid;
   place-items: center;
   text-align: center;
 }
 
 .header__title {
-  font-size: var(--font-size-header-title);
+  font-size: var(
+    --font-size-header-title,
+    clamp(3.0625rem, 2.4215rem + 2.735vw, 4.0625rem)
+  );
   margin-block-end: 20px;
 }
 
+@media (width < 375px) {
+  /*
+    требуется, так как макет выполнен для 375px, а минимальное поддерживаемое значение экрана - 320px
+    font-size из макета 49px и текст такого размера не влазит в 320px с заданными padding из макета
+  */
+  .header__title {
+    font-size: clamp(40px, calc(-12.36px + 16.36vw), 49px);
+  }
+}
+
+/*
+  требуется, так как титульник с размером шрифта 40-49px не влазит в экран 328px-394px для браузера Firefox
+*/
+@supports (-moz-appearance: none) {
+  .header__title {
+    font-size: clamp(40px, calc(32.86px + 2.23vw), 65px);
+  }
+}
+
 .header__description {
-  font-size: var(--font-size-header-description);
+  font-size: var(
+    --font-size-header-description,
+    clamp(0.875rem, 0.5144rem + 1.5385vw, 1.4375rem)
+  );
 }
 
 /* КАРТОЧКИ */
@@ -63,11 +97,11 @@
 
 .card {
   background-color: #fff;
-  border: var(--border);
+  border: var(--border, 2px solid #000);
 }
 
 .card__title {
-  font-variation-settings: "wght" var(--font-main-weight-title);
+  font-variation-settings: "wght" var(--font-main-weight-title, 715);
   padding: 4px 10px;
   font-size: 18px;
 }
@@ -98,7 +132,7 @@
   z-index: 1;
   opacity: 0.5;
   mix-blend-mode: hard-light;
-  font-family: var(--font-accent, fantasy);
+  font-family: var(--font-accent, "PressStart2P", fantasy);
   font-size: 14px;
   text-transform: uppercase;
   text-shadow: 1px #fff;
@@ -154,9 +188,9 @@
 
 .button {
   position: relative;
-  border: var(--border);
-  background: var(--button-bg-color);
-  color: var(--button-text-color);
+  border: var(--border, 2px solid #000);
+  background: var(--button-bg-color, #fff);
+  color: var(--button-text-color, #fff);
   font-family: inherit;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
@@ -168,7 +202,7 @@
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--accent-focus-color);
+  box-shadow: 2px 2px 0 0 var(--accent-focus-color, #000);
 }
 
 .button::before {
@@ -213,7 +247,7 @@
 }
 
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--stroke-like-icon);
+  outline: 2px solid var(--stroke-like-icon, #000);
   /*
     outline-offset со значением -1px требуется, т.к. размер иконки из мокапа иконок не соответствует иконке из мокапа страницы:
     у иконки из мокапа иконок больше пространства вокруг контура.
@@ -224,7 +258,7 @@
 
 .button__text {
   display: inline-block;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent, "PressStart2P", fantasy);
   font-size: 14px;
   line-height: 90%;
 }
@@ -285,41 +319,41 @@
 /* hover */
 
 .like-icon:hover .core {
-  fill: var(--fill-color-hover);
+  fill: var(--fill-color-hover), #000;
   transition-delay: 0s;
 }
 
 .like-icon:hover .main-body {
-  fill: var(--fill-color-hover);
+  fill: var(--fill-color-hover, #000);
   transition-delay: 0.05s;
 }
 
 /* active */
 
 .like-icon:active .core {
-  fill: var(--fill-color-active);
+  fill: var(--fill-color-active, #ff0000);
   transition-delay: 0s;
 }
 
 .like-icon:active .main-body {
-  fill: var(--fill-color-active);
+  fill: var(--fill-color-active, #ff0000);
   transition-delay: 0.05s;
 }
 
 /* is-liked */
 
 .like-icon.is-liked .core {
-  fill: var(--fill-color-isliked);
+  fill: var(--fill-color-isliked, #ff0000);
   transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--fill-color-isliked);
+  fill: var(--fill-color-isliked, #ff0000);
   transition-delay: 0.05s;
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--fill-color-isliked);
+  fill: var(--fill-color-isliked, #ff0000);
   transition-duration: 0.3s;
   transition-delay: 0.06s;
 }
@@ -355,7 +389,7 @@
   gap: 30px 20px;
   align-items: center;
   font-size: 14px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent, "PressStart2P", fantasy);
 }
 
 .modal[open] {
@@ -395,8 +429,8 @@
   }
 
   .card__image {
-    height: var(--img-height);
-    width: var(--img-width);
+    height: var(--img-height, clamp(371px, 30.89vw + 255.1px, 700px));
+    width: var(--img-width, 100%);
   }
 
   .button__save {
