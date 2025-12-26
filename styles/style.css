@@ -261,6 +261,9 @@
   font-family: var(--font-accent, "PressStart2P", fantasy);
   font-size: 14px;
   line-height: 90%;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .button__save-wrapper {
@@ -280,15 +283,6 @@
 .button__save svg {
   width: 28px;
   height: 28px;
-}
-
-.button__text {
-  position: relative;
-  z-index: 1;
-  mix-blend-mode: difference;
-}
-
-.button__save svg {
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
