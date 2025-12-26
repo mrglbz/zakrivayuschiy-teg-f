@@ -33,6 +33,8 @@
 
   /* переменные для сердца */
   --heart-color-contour: #000;
-  --animation-fill-color: #ff0000;
   --sparks-color-contour: #ff0000;
+  --fill-color-hover: #000;
+  --fill-color-active: #ff0000;
+  --fill-color-isliked: #ff0000;
 }
